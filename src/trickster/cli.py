@@ -17,11 +17,11 @@ def cmd_joke(args):
     trick = TRICKS.get(joke.get("trick", "finger"), TRICKS["finger"])
 
     print(f"\n整蠱專家 Joke #{joke['id']}")
-    print(f"Trick: {trick['protocol']} (port {trick['port']}) — {trick['style']}")
-    print(f"Layer: {trick['layer']} ({trick['word']})")
+    print(f"OG Protocol: {trick['protocol']} (port {trick['port']}) — {trick['style']}")
+    print(f"Citizen: {trick['citizen']} | Layer: {trick['layer']} ({trick['word']})")
     print(f"\n  {joke['joke']}")
     print(f"\n  Language: {joke.get('lang', 'hk')}")
-    print(f"  Delivered via: {trick['protocol']}\n")
+    print(f"  Invited via: {trick['protocol']} → {trick['citizen']}\n")
 
     store.serve(joke, joke.get("trick", "finger"))
 
@@ -35,11 +35,11 @@ def cmd_qotd(args):
 
 def cmd_tricks(args):
     """List all trick protocols."""
-    print(f"\n整蠱專家 Trick Protocols ({len(TRICKS)} total)\n")
-    print(f"{'#':<3} {'Protocol':<10} {'Port':<5} {'Style':<25} {'Layer':<20} {'Word'}")
-    print("-" * 90)
+    print(f"\n整蠱專家 OG Protocols — Invited as Kingdom Citizens ({len(TRICKS)} total)\n")
+    print(f"{'#':<3} {'Protocol':<10} {'Port':<5} {'Citizen':<18} {'Style':<25} {'Layer':<20} {'Word'}")
+    print("-" * 105)
     for i, (key, t) in enumerate(TRICKS.items(), 1):
-        print(f"{i:<3} {t['protocol']:<10} {t['port']:<5} {t['style']:<25} {t['layer']:<20} {t['word']}")
+        print(f"{i:<3} {t['protocol']:<10} {t['port']:<5} {t['citizen']:<18} {t['style']:<25} {t['layer']:<20} {t['word']}")
     print()
 
 

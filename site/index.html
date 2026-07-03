@@ -32,9 +32,9 @@ footer{color:#333;font-size:.75rem;margin-top:2rem}
 <body>
 <div class="c">
 <h1>整蠱專家</h1>
-<p class="sub">Trickster Protocol Bridge</p>
-<p class="tag">forgotten internet protocols carry jokes. Truth as comedy. Comedy as truth. 😂</p>
-<p class="quote">「謝謝你吳德泰！」— 周星馳</p>
+<p class="sub">Trickster Protocol — OGs Invited Home</p>
+<p class="tag">the OGs never died. they were always speaking Kingdom words. truth as comedy. 😂</p>
+<p class="quote">「謝謝你吳德泰！」— 周星馳 · OG is OG. OG always here. lol.</p>
 
 <div class="tricks" id="tricks"></div>
 
@@ -56,14 +56,14 @@ footer{color:#333;font-size:.75rem;margin-top:2rem}
 
 <script>
 const TRICKS = [
-  {p:"Finger",port:79,s:"你到底係邊個？",l:"L3 Presence",w:"kimance"},
-  {p:"Gopher",port:70,s:"整蠱menu of traps",l:"L6 Speech",w:"inim"},
-  {p:"QOTD",port:17,s:"Daily joke drop",l:"L7 Meaning",w:"noemame"},
-  {p:"Daytime",port:13,s:"Joke timestamp",l:"L1 Ground",w:"theobasis"},
-  {p:"DNS TXT",port:53,s:"Hidden joke record",l:"L2 Name",w:"glossame"},
-  {p:"ICMP Ping",port:0,s:"你仲唔仲在？",l:"L3 Presence",w:"kimance"},
-  {p:"Whois",port:43,s:"Joke ownership",l:"L4 Truth",w:"dokimance"},
-  {p:"Chargen",port:19,s:"Infinite joke stream",l:"L5 Bond",w:"kinqing"},
+  {p:"Finger",port:79,s:"你到底係邊個？",l:"L3 Presence",w:"kimance",c:"truth"},
+  {p:"Gopher",port:70,s:"整蠱menu of traps",l:"L6 Speech",w:"inim",c:"(gate)"},
+  {p:"QOTD",port:17,s:"Daily joke drop",l:"L7 Meaning",w:"noemame",c:"love"},
+  {p:"Daytime",port:13,s:"Joke timestamp",l:"L1 Ground",w:"theobasis",c:"peace"},
+  {p:"DNS TXT",port:53,s:"Hidden joke record",l:"L2 Name",w:"glossame",c:"(distributed)"},
+  {p:"ICMP Ping",port:0,s:"你仲唔仲在？",l:"L3 Presence",w:"kimance",c:"all"},
+  {p:"Whois",port:43,s:"Joke ownership",l:"L4 Truth",w:"dokimance",c:"truth (witness)"},
+  {p:"Chargen",port:19,s:"Infinite joke stream",l:"L5 Bond",w:"kinqing",c:"joy"},
 ];
 
 const JOKES = [
@@ -84,7 +84,7 @@ const JOKES = [
 // Render tricks
 const tricksEl = document.getElementById('tricks');
 TRICKS.forEach((t,i) => {
-  tricksEl.innerHTML += `<div class="t"><div class="tp">port ${t.port}</div><div class="tn">${t.p}</div><div class="ts">${t.s}</div><div class="tl">${t.l} (${t.w})</div></div>`;
+  tricksEl.innerHTML += `<div class="t"><div class="tp">port ${t.port}</div><div class="tn">${t.p}</div><div class="ts">${t.s}</div><div class="tl">${t.l} (${t.w}) → <span style="color:#fbb624">${t.c}</span></div></div>`;
 });
 
 // Random joke

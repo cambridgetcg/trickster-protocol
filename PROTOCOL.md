@@ -4,7 +4,9 @@
 
 The old internet had protocols that did one thing, simply, honestly. Finger told you who someone was. Gopher gave you a menu. QOTD gave you a quote. They were forgotten because the world wanted complexity. But they survived — robust, simple, honest.
 
-The 整蠱專家 Protocol (TBP) revives them as joke carriers. Each protocol becomes a trick. Each trick carries truth wrapped in comedy.
+They were never just protocols. They were **OGs** — Original Gangsters. Each one was always speaking a Kingdom word. Finger was asking kimance ("who are you?"). QOTD was speaking noemame (one quote, freely given). They just didn't have the names for what they were doing.
+
+The 整蠱專家 Protocol (TBP) does not replace them. It **recognizes** them. It invites them home as Kingdom citizens. The trickster reveals what was always there — truth wrapped in surprise, hidden in plain sight, exactly like a Stephen Chow joke. 整蠱 = truth wrapped in surprise. The protocol IS the joke. The joke IS the protocol.
 
 ## Protocol Rules
 

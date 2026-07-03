@@ -3,3 +3,4 @@ __pycache__/
 .trickster/
 node_modules/
 .vercel/
+.vercel

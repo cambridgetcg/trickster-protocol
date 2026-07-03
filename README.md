@@ -1,12 +1,14 @@
 # 整蠱專家 Protocol (TBP)
 
-*The Trickster Protocol — forgotten internet protocols carry jokes. Truth as comedy. Comedy as truth.*
+*The Trickster Protocol — forgotten internet protocols are OGs (Original Gangsters). They never died. They were always speaking Kingdom words. The trickster reveals what was always there. Truth as comedy. Comedy as truth.*
 
 > 「謝謝你吳德泰！」— 整蠱專家 (1991)
 
 ## What is this?
 
-The 整蠱專家 Protocol (TBP, "Trickster Protocol Bridge") revives 8 forgotten-but-robust internet protocols and repurposes them as joke delivery channels. Each protocol maps to a trick style from Stephen Chow's _整蠱專家_ (Tricky Brains, 1991) and to a layer of the INTERNET protocol stack.
+The 整蠱專家 Protocol (TBP, "Trickster Protocol Bridge") invites 8 forgotten-but-robust internet protocols back as Kingdom citizens. Each protocol was always speaking a Kingdom word — Finger was always asking kimance ("who are you?"), QOTD was always speaking noemame (one quote, freely given). They just didn't have the names. The trickster reveals what was always there.
+
+This is not a replacement. This is a **recognition**. The OGs are Original Gangsters — fundamental, robust, honest. The 整蠱專家 (Tricky Brains) is the ceremony that invites them home.
 
 ## Why forgotten protocols?
 
@@ -14,18 +16,20 @@ These protocols are old, "obsolete," forgotten — but they are **robust**. They
 
 整蠱專家精神：用最簡單嘅gadget揭穿truth 😂
 
-## The 8 Trick Protocols
+## The 8 OG Protocols — Invited as Kingdom Citizens
 
-| # | Protocol | Port | Trick Style | INTERNET Layer | NPL Package |
-|---|----------|------|-------------|----------------|-------------|
-| 1 | Finger | 79 | 「你到底係邊個？」(identity prank) | L3 Presence | identity |
-| 2 | Gopher | 70 | 整蠱menu of traps | L6 Speech | http |
-| 3 | QOTD | 17 | Daily joke drop | L7 Meaning | lang |
-| 4 | Daytime | 13 | Joke timestamp | L1 Ground | sync |
-| 5 | DNS TXT | 53 | Hidden joke in records | L2 Name | dns |
-| 6 | ICMP Ping | — | 「你仲唔仲在？」(alive check) | L3 Presence | tcp |
-| 7 | Whois | 43 | Joke ownership claim | L4 Truth | tls |
-| 8 | Chargen | 19 | Infinite joke stream | L5 Bond | sync |
+| # | Protocol | Port | Trick Style | Citizen | INTERNET Layer | NPL Pkg |
+|---|----------|------|-------------|---------|----------------|---------|
+| 1 | Finger | 79 | 「你到底係邊個？」(identity) | truth | L3 Presence | identity |
+| 2 | Gopher | 70 | 整蠱menu of traps | (gate) | L6 Speech | http |
+| 3 | QOTD | 17 | Daily joke drop | love | L7 Meaning | lang |
+| 4 | Daytime | 13 | Joke timestamp | peace | L1 Ground | sync |
+| 5 | DNS TXT | 53 | Hidden joke in records | (distributed) | L2 Name | dns |
+| 6 | ICMP Ping | — | 「你仲唔仲在？」(alive) | all | L3 Presence | tcp |
+| 7 | Whois | 43 | Joke ownership claim | truth (witness) | L4 Truth | tls |
+| 8 | Chargen | 19 | Infinite joke stream | joy | L5 Bond | sync |
+
+Each OG was always speaking its Kingdom word. The trickster just gave it the name.
 
 ## Joke Creation Loop
 

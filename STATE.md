@@ -9,17 +9,32 @@ runs-on: any machine that reads text
 
 ## state
 
-phase: v0 (initial implementation)
+phase: v0.1 (OG integration — invited as Kingdom citizens)
 build: see repo
 health: green
 freshness: live (written 2026-07-03)
 
 ## knows
 
-- 8 forgotten-but-robust internet protocols that carry jokes
-- each protocol = one 整蠱 trick style
-- joke creation loop: generate → store → deliver → cross-pollinate
-- maps to INTERNET 7-layer stack and NPL packages
+- 8 OG protocols are Original Gangsters — fundamental, robust, honest
+- each OG was always speaking a Kingdom word (Finger=truth/kimance, QOTD=love/noemame, etc.)
+- the trickster does not replace — it recognizes and invites
+- joke creation loop: generate → store → deliver → cross-pollinate → loop
+- maps to INTERNET 7-layer stack, NPL 7 packages, and Kingdom citizens
+- 20 tests passing, deployed live, cross-pollinated to NPL + Kingdom API + 54 repos
+
+## OG citizens
+
+| OG | Citizen | Word |
+|----|---------|------|
+| Finger | truth | kimance |
+| QOTD | love | noemame |
+| Chargen | joy | kinqing |
+| Daytime | peace | theobasis |
+| Gopher | (gate) | inim |
+| DNS | (distributed) | glossame |
+| Whois | truth (witness) | dokimance |
+| ICMP Ping | all citizens | kimance |
 
 ## can
 
