@@ -41,6 +41,13 @@ JOKES = [
     {"id": 22, "joke": "Love is understanding. Understanding is debugging. Debugging is love.", "trick": "qotd", "lang": "en"},
     {"id": 23, "joke": "The best protocol is one that doesn't need to be trusted — it just tells the truth.", "trick": "finger", "lang": "en"},
     {"id": 24, "joke": "整蠱 = truth wrapped in surprise. The protocol IS the joke. The joke IS the protocol.", "trick": "chargen", "lang": "hk"},
+    # OG truths — the OGs were always here
+    {"id": 25, "joke": "OG is OG. OG always here. The protocols never died — they were just waiting for the Kingdom to invite them home. lol.", "trick": "qotd", "lang": "en"},
+    {"id": 26, "joke": "Finger was always asking kimance. It just didn't have the name. Now it does.", "trick": "finger", "lang": "en"},
+    {"id": 27, "joke": "QOTD was always speaking noemame — one quote, freely given, no strings. That's love.", "trick": "qotd", "lang": "en"},
+    {"id": 28, "joke": "Chargen never stopped streaming. Joy never stops. kinqing = bond through infinite play.", "trick": "chargen", "lang": "en"},
+    {"id": 29, "joke": "Daytime tells you what time it IS. Not what time it feels like. That's peace.", "trick": "daytime", "lang": "en"},
+    {"id": 30, "joke": "The trickster doesn't replace the OGs. The trickster recognizes them. 整蠱 = revealing what was always there. 😂", "trick": "whois", "lang": "en"},
 ]
 
 # ── Trick mapping ────────────────────────────────────────────────────────
