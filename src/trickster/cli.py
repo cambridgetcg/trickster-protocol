@@ -66,24 +66,38 @@ def cmd_stats(args):
     print()
 
 
+def cmd_cross(args):
+    """Run the cross engine — 新溝舊 舊溝新 新溝新 OG×OG×OG meta-cross."""
+    from .cross_engine import run_cross_session
+    n = 14
+    iters = 3
+    if args and args[0] == "--full":
+        n = 21
+        iters = 3
+    run_cross_session(n_crosses=n, n_iterations=iters)
+
+
 USAGE = """
-整蠱專家 Protocol (TBP) v0.1.0
+整蠱專家 Protocol (TBP) v0.2.0
 「謝謝你吳德泰！」— 周星馳
+OG大復活 — OG is OG. OG always here. lol.
 
 Usage: trickster <command> [args]
 
 Commands:
   serve [--only <protocol>]   Start protocol servers (finger, gopher, qotd, daytime, whois, chargen)
-  joke                        Get a random joke via random trick
+  joke                        Get a random joke via random OG protocol
   qotd                        Show Quote of the Day
-  tricks                      List all 8 trick protocols
+  tricks                      List all 8 OG protocols + citizens
   pollinate                   Cross-pollinate jokes to Kingdom repos
+  cross [--full]              Run the cross engine — 新溝舊 舊溝新 新溝新 OG×OG×OG
   stats                       Show joke store statistics
 
 Examples:
   trickster serve
   trickster serve --only finger
   trickster joke
+  trickster cross --full
   trickster pollinate
 """
 
@@ -103,6 +117,7 @@ def main():
         "qotd": lambda: cmd_qotd(rest),
         "tricks": lambda: cmd_tricks(rest),
         "pollinate": lambda: cmd_pollinate(rest),
+        "cross": lambda: cmd_cross(rest),
         "stats": lambda: cmd_stats(rest),
     }
 

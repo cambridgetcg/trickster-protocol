@@ -304,6 +304,147 @@ def test_protocol_honesty():
     return True
 
 
+# ── Cross engine tests ─────────────────────────────────────────────────
+
+def test_cross_engine_import():
+    """Cross engine can be imported."""
+    from trickster.cross_engine import (
+        cross_new_x_old, cross_old_x_new, cross_new_x_new,
+        cross_og_x_og_x_og, cross_one_layer_behind,
+        cross_word_x_protocol, cross_joke_x_truth,
+        generate_crosses, reduce_friction, cross_loop, CROSS_FNS,
+        NEW_OGS, OLD_OGS, FORGOTTEN_OGS, KINGDOM_WORDS, NPL_VERBS,
+    )
+    assert len(CROSS_FNS) == 7
+    return True
+
+
+def test_cross_new_x_old():
+    """新溝舊: new OG × old OG produces a valid cross."""
+    from trickster.cross_engine import cross_new_x_old
+    c = cross_new_x_old()
+    assert c["type"] == "new×old"
+    assert "a" in c and "b" in c
+    assert "creation" in c
+    assert "meaning" in c
+    assert len(c["creation"]) > 0
+    return True
+
+
+def test_cross_old_x_new():
+    """舊溝新: old OG × new OG produces a valid cross."""
+    from trickster.cross_engine import cross_old_x_new
+    c = cross_old_x_new()
+    assert c["type"] == "old×new"
+    assert "a" in c and "b" in c
+    assert "protocol_idea" in c
+    return True
+
+
+def test_cross_new_x_new():
+    """新溝新: two new OGs cross — they haven't met."""
+    from trickster.cross_engine import cross_new_x_new
+    c = cross_new_x_new()
+    assert c["type"] == "new×new"
+    assert c["a"] != c["b"], "Should cross two DIFFERENT OGs"
+    return True
+
+
+def test_cross_og_x_og_x_og():
+    """OG cross cross: three OGs collide at once."""
+    from trickster.cross_engine import cross_og_x_og_x_og
+    c = cross_og_x_og_x_og()
+    assert c["type"] == "og×og×og"
+    assert "a" in c and "b" in c and "c" in c
+    assert len(c["creation"]) > 0
+    return True
+
+
+def test_cross_meta():
+    """退後一層meta-cross: cross the crosses themselves."""
+    from trickster.cross_engine import cross_one_layer_behind
+    c = cross_one_layer_behind()
+    assert "meta-cross" in c["type"]
+    assert c["type"] != c.get("a", ""), "Meta-cross should be different from base"
+    assert "META" in c["creation"] or "meta" in c["creation"].lower()
+    return True
+
+
+def test_cross_word_x_protocol():
+    """Kingdom word × OG protocol — semantic cross."""
+    from trickster.cross_engine import cross_word_x_protocol
+    c = cross_word_x_protocol()
+    assert c["type"] == "word×protocol"
+    assert "was always" in c["creation"]
+    return True
+
+
+def test_cross_joke_x_truth():
+    """星爺 joke × protocol truth — comedy as truth."""
+    from trickster.cross_engine import cross_joke_x_truth
+    c = cross_joke_x_truth()
+    assert c["type"] == "joke×truth"
+    assert "joke" in c
+    assert len(c["joke"]) > 10
+    return True
+
+
+def test_generate_crosses():
+    """generate_crosses produces n crosses."""
+    from trickster.cross_engine import generate_crosses
+    results = generate_crosses(10)
+    assert len(results) == 10
+    for c in results:
+        assert "ts" in c
+        assert "cross_type" in c
+        assert "creation" in c
+    return True
+
+
+def test_reduce_friction():
+    """Each cross gets a friction score — lower = more reduced = better."""
+    from trickster.cross_engine import reduce_friction, cross_joke_x_truth
+    c = cross_joke_x_truth()
+    c = reduce_friction(c)
+    assert "friction" in c
+    assert "friction_direction" in c
+    assert c["friction"] > 0
+    assert c["friction_direction"] in ("↓ reduced", "→ same", "↑ more")
+    return True
+
+
+def test_cross_loop():
+    """The full loop runs and produces sorted results."""
+    from trickster.cross_engine import cross_loop
+    results = cross_loop(iterations=2)
+    assert len(results) > 0
+    # Results should be sorted by friction
+    frictions = [r["friction"] for r in results]
+    assert frictions == sorted(frictions), "Should be sorted by friction (lowest first)"
+    return True
+
+
+def test_cross_gene_pools():
+    """All gene pools have data."""
+    from trickster.cross_engine import NEW_OGS, OLD_OGS, FORGOTTEN_OGS, KINGDOM_WORDS, NPL_VERBS, CITIZENS, STAR_JOKES, PROTOCOL_TRUTHS
+    assert len(NEW_OGS) == 8, f"Expected 8 new OGs, got {len(NEW_OGS)}"
+    assert len(OLD_OGS) == 6, f"Expected 6 old OGs, got {len(OLD_OGS)}"
+    assert len(FORGOTTEN_OGS) == 6, f"Expected 6 forgotten OGs, got {len(FORGOTTEN_OGS)}"
+    assert len(KINGDOM_WORDS) == 7
+    assert len(NPL_VERBS) == 7
+    assert len(STAR_JOKES) > 0
+    assert len(PROTOCOL_TRUTHS) > 0
+    return True
+
+
+def test_cross_total_ogs():
+    """Total OG pool: 8 (new) + 6 (old) + 6 (forgotten) = 20 OGs."""
+    from trickster.cross_engine import NEW_OGS, OLD_OGS, FORGOTTEN_OGS
+    total = len(NEW_OGS) + len(OLD_OGS) + len(FORGOTTEN_OGS)
+    assert total == 20, f"Expected 20 total OGs, got {total}"
+    return True
+
+
 # ── Run all tests ────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
@@ -333,6 +474,20 @@ if __name__ == "__main__":
         # Protocol truth
         test_every_joke_is_true,
         test_protocol_honesty,
+        # Cross engine
+        test_cross_engine_import,
+        test_cross_new_x_old,
+        test_cross_old_x_new,
+        test_cross_new_x_new,
+        test_cross_og_x_og_x_og,
+        test_cross_meta,
+        test_cross_word_x_protocol,
+        test_cross_joke_x_truth,
+        test_generate_crosses,
+        test_reduce_friction,
+        test_cross_loop,
+        test_cross_gene_pools,
+        test_cross_total_ogs,
     ]
 
     passed = 0

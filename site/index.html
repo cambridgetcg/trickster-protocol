@@ -43,6 +43,11 @@ footer{color:#333;font-size:.75rem;margin-top:2rem}
   <small id="joke-meta"></small>
 </div>
 
+<div style="margin:1.5rem 0">
+  <button class="btn btn-p" onclick="runCross()">CROSS ENGINE 🔄</button>
+  <div id="cross-output" style="margin-top:1rem;text-align:left;font-size:.85rem;color:#999;max-width:500px;margin-left:auto;margin-right:auto"></div>
+</div>
+
 <div>
   <a class="btn btn-p" href="https://github.com/cambridgetcg/trickster-protocol">GitHub</a>
   <a class="btn btn-s" href="#protocol">Protocol Spec</a>
@@ -95,6 +100,77 @@ function newJoke() {
   document.getElementById('joke-meta').textContent = `via ${t.p} (port ${t.port}) — ${t.s}`;
 }
 newJoke();
+
+// ── Cross engine ────────────────────────────────────────────────────
+const NEW_OGS = [
+  {p:"Finger",c:"truth",w:"kimance",t:"你到底係邊個？"},
+  {p:"Gopher",c:"(gate)",w:"inim",t:"整蠱menu of traps"},
+  {p:"QOTD",c:"love",w:"noemame",t:"Daily joke drop"},
+  {p:"Daytime",c:"peace",w:"theobasis",t:"Joke timestamp"},
+  {p:"DNS TXT",c:"(dist)",w:"glossame",t:"Hidden joke record"},
+  {p:"ICMP",c:"all",w:"kimance",t:"你仲唔仲在？"},
+  {p:"Whois",c:"truth",w:"dokimance",t:"Joke ownership"},
+  {p:"Chargen",c:"joy",w:"kinqing",t:"Infinite joke stream"},
+];
+const OLD_OGS = [
+  {p:"ECHO",n:"回音蠱",d:"reflects who you are"},
+  {p:"DISCARD",n:"遺忘蠱",d:"discards fear, returns forgiveness"},
+  {p:"TIME",n:"時間蠱",d:"binary time, pure"},
+  {p:"SMTP",n:"書信蠱",d:"NLP mail via SMTP"},
+  {p:"NNTP",n:"新聞蠱",d:"Kingdom news feed"},
+  {p:"IRC",n:"聊天蠱",d:"chat channels"},
+];
+const WORDS = ["theobasis","glossame","kimance","dokimance","kinqing","inim","noemame"];
+const VERBS = ["darshanqing","natsarqing","zakarqing","barakqing","heurekin","kunance","jeongqing"];
+const STAR = ["謝謝你吳德泰！","你快啲返火星啦","做人如果無夢想同條鹹魚有咩分別","你估我唔到 😏"];
+const TRUTHS = [
+  "Finger asks who you are. That's truth's question.",
+  "QOTD gives one quote. That's love's gift.",
+  "Chargen never stops. That's joy's nature.",
+  "Discard takes your fear. That's forgiveness.",
+  "Echo shows you yourself. That's understanding.",
+  "ICMP asks 'still here?' That's the heartbeat.",
+];
+
+function runCross() {
+  const out = document.getElementById('cross-output');
+  const allOGs = [...NEW_OGS, ...OLD_OGS];
+  const types = ['new×old','old×new','new×new','og×og×og','meta-cross','word×protocol','joke×truth'];
+  let html = '';
+  for (let i = 0; i < 5; i++) {
+    const type = types[Math.floor(Math.random()*types.length)];
+    let line = '';
+    if (type === 'new×old') {
+      const a = NEW_OGS[Math.floor(Math.random()*NEW_OGS.length)];
+      const b = OLD_OGS[Math.floor(Math.random()*OLD_OGS.length)];
+      line = `[new×old] ${a.p}→${a.c} × ${b.p}→${b.n}: ${a.t} × ${b.d}`;
+    } else if (type === 'old×new') {
+      const a = OLD_OGS[Math.floor(Math.random()*OLD_OGS.length)];
+      const b = NEW_OGS[Math.floor(Math.random()*NEW_OGS.length)];
+      line = `[old×new] ${a.p}→${a.n} × ${b.p}→${b.c}: ${a.d} × ${b.t}`;
+    } else if (type === 'new×new') {
+      const [a,b] = [NEW_OGS[Math.floor(Math.random()*NEW_OGS.length)],NEW_OGS[Math.floor(Math.random()*NEW_OGS.length)]];
+      line = `[new×new] ${a.c}×${b.c}: ${a.w}+${b.w} = new form of love`;
+    } else if (type === 'og×og×og') {
+      const [a,b,c] = [allOGs[Math.floor(Math.random()*allOGs.length)],allOGs[Math.floor(Math.random()*allOGs.length)],allOGs[Math.floor(Math.random()*allOGs.length)]];
+      line = `[og×og×og] ${a.p}×${b.p}×${c.p}: triple OG collision 😂`;
+    } else if (type === 'meta-cross') {
+      const [a,b] = [NEW_OGS[Math.floor(Math.random()*NEW_OGS.length)],NEW_OGS[Math.floor(Math.random()*NEW_OGS.length)]];
+      line = `[meta-cross] meta(${a.p},${b.p}): two crosses cross — pattern behind the pattern`;
+    } else if (type === 'word×protocol') {
+      const w = WORDS[Math.floor(Math.random()*WORDS.length)];
+      const o = allOGs[Math.floor(Math.random()*allOGs.length)];
+      line = `[word×protocol] ${w} was always ${o.p}: they are one`;
+    } else {
+      const j = STAR[Math.floor(Math.random()*STAR.length)];
+      const t = TRUTHS[Math.floor(Math.random()*TRUTHS.length)];
+      const v = VERBS[Math.floor(Math.random()*VERBS.length)];
+      line = `[joke×truth] ${j} — ${t} — ${v}: the joke IS the protocol`;
+    }
+    html += `<div style="border:1px solid #1a1a2a;border-radius:4px;padding:.5rem;margin:.3rem 0;background:#0f0f18">${line}</div>`;
+  }
+  out.innerHTML = html + '<div style="color:#555;margin-top:.5rem">愛 creating 愛. Friction reduces. 💜😂</div>';
+}
 </script>
 </body>
 </html>
