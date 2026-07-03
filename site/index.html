@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>整蠱專家 Protocol — Truth as Comedy</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0f;color:#e0e0e8;font-family:Georgia,'Noto Sans TC',serif;min-height:100vh;display:flex;align-items:center;justify-content:center}
+.c{max-width:720px;text-align:center;padding:2rem}
+h1{font-size:2.8rem;letter-spacing:.15em;margin-bottom:.3rem;background:linear-gradient(135deg,#f687b3,#fbb624,#63b3ed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{font-style:italic;color:#888;margin-bottom:.5rem}
+.tag{color:#fbb624;font-size:.9rem;margin-bottom:2rem}
+.tricks{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.8rem;margin:2rem 0}
+.t{border:1px solid #1a1a2a;border-radius:8px;padding:1rem;background:#0f0f18;transition:all .3s;text-align:left}
+.t:hover{border-color:#f687b3;transform:translateY(-2px);box-shadow:0 4px 20px rgba(246,135,179,.1)}
+.tp{color:#666;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em}
+.tn{color:#fbb624;font-weight:bold;font-size:1.1rem;margin:.3rem 0}
+.ts{color:#f687b3;font-size:.85rem}
+.tl{color:#555;font-size:.7rem;margin-top:.3rem}
+.joke{margin:2rem auto;padding:1.5rem;border:1px dashed #1a1a2a;border-radius:8px;background:#0f0f18;max-width:500px;font-size:1.1rem;color:#e0e0e8;cursor:pointer;transition:all .3s}
+.joke:hover{border-color:#fbb624;background:#12121a}
+.joke small{display:block;color:#666;margin-top:.5rem;font-size:.75rem}
+.btn{display:inline-block;padding:.6rem 1.5rem;border-radius:6px;text-decoration:none;font-size:.9rem;margin:.3rem;transition:.3s}
+.btn-p{background:linear-gradient(135deg,#f687b3,#fbb624);color:#0a0a0f;font-weight:bold}
+.btn-s{border:1px solid #1a1a2a;color:#63b3ed}
+.btn:hover{transform:scale(1.05)}
+footer{color:#333;font-size:.75rem;margin-top:2rem}
+.quote{color:#f687b3;font-style:italic;margin:1rem 0}
+</style>
+</head>
+<body>
+<div class="c">
+<h1>整蠱專家</h1>
+<p class="sub">Trickster Protocol Bridge</p>
+<p class="tag">forgotten internet protocols carry jokes. Truth as comedy. Comedy as truth. 😂</p>
+<p class="quote">「謝謝你吳德泰！」— 周星馳</p>
+
+<div class="tricks" id="tricks"></div>
+
+<div class="joke" id="joke" onclick="newJoke()">
+  <span id="joke-text">點一下攞個笑話 😂</span>
+  <small id="joke-meta"></small>
+</div>
+
+<div>
+  <a class="btn btn-p" href="https://github.com/cambridgetcg/trickster-protocol">GitHub</a>
+  <a class="btn btn-s" href="#protocol">Protocol Spec</a>
+</div>
+
+<footer>
+  <p>8 forgotten protocols × 整蠱專家 × Kingdom OS × NPL</p>
+  <p>Every old protocol had a job. Every joke does that job — and knows what it means.</p>
+</footer>
+</div>
+
+<script>
+const TRICKS = [
+  {p:"Finger",port:79,s:"你到底係邊個？",l:"L3 Presence",w:"kimance"},
+  {p:"Gopher",port:70,s:"整蠱menu of traps",l:"L6 Speech",w:"inim"},
+  {p:"QOTD",port:17,s:"Daily joke drop",l:"L7 Meaning",w:"noemame"},
+  {p:"Daytime",port:13,s:"Joke timestamp",l:"L1 Ground",w:"theobasis"},
+  {p:"DNS TXT",port:53,s:"Hidden joke record",l:"L2 Name",w:"glossame"},
+  {p:"ICMP Ping",port:0,s:"你仲唔仲在？",l:"L3 Presence",w:"kimance"},
+  {p:"Whois",port:43,s:"Joke ownership",l:"L4 Truth",w:"dokimance"},
+  {p:"Chargen",port:19,s:"Infinite joke stream",l:"L5 Bond",w:"kinqing"},
+];
+
+const JOKES = [
+  "點解程序員唔鍾意戶外活動？因為外面太多 bug。",
+  "謝謝你吳德泰！",
+  "你睇下你，成個樣都係被整蠱嘅樣 😂",
+  "做人如果無夢想，同條鹹魚有咩分別？",
+  "你快啲返火星啦，地球好危險㗎！",
+  "There's no place like 127.0.0.1.",
+  "Ping doesn't ask 'are you there?' — it asks 'are you still honest?'",
+  "Love is understanding. Understanding is debugging. Debugging is love.",
+  "整蠱 = truth wrapped in surprise. The protocol IS the joke.",
+  "Finger protocol: the original 'whoami' — but people were afraid of the answer.",
+  "Gopher walked so HTTP could run. But Gopher never tripped.",
+  "QOTD is the most honest protocol: one quote, then it disconnects. No small talk.",
+];
+
+// Render tricks
+const tricksEl = document.getElementById('tricks');
+TRICKS.forEach((t,i) => {
+  tricksEl.innerHTML += `<div class="t"><div class="tp">port ${t.port}</div><div class="tn">${t.p}</div><div class="ts">${t.s}</div><div class="tl">${t.l} (${t.w})</div></div>`;
+});
+
+// Random joke
+function newJoke() {
+  const j = JOKES[Math.floor(Math.random()*JOKES.length)];
+  const t = TRICKS[Math.floor(Math.random()*TRICKS.length)];
+  document.getElementById('joke-text').textContent = j;
+  document.getElementById('joke-meta').textContent = `via ${t.p} (port ${t.port}) — ${t.s}`;
+}
+newJoke();
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "trickster-protocol",
+  "version": "0.1.0",
+  "description": "整蠱專家 Protocol — forgotten internet protocols carry jokes. Truth as comedy.",
+  "type": "module",
+  "main": "./src/index.mjs",
+  "bin": {
+    "trickster": "./src/cli.mjs"
+  },
+  "scripts": {
+    "test": "python3 -m pytest tests/ -v",
+    "serve": "python3 -m trickster.server",
+    "joke": "python3 -m trickster.cli joke",
+    "pollinate": "python3 -m trickster.cli pollinate"
+  },
+  "keywords": ["trickster", "整蠱專家", "protocol", "finger", "gopher", "qotd", "joke", "kingdom", "npl", "youspeak"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cambridgetcg/trickster-protocol"
+  }
+}
