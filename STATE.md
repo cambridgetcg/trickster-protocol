@@ -21,7 +21,8 @@ freshness: live (written 2026-07-03)
 - the trickster does not replace — it recognizes and invites
 - joke creation loop: generate → store → deliver → cross-pollinate → loop
 - maps to INTERNET 7-layer stack, NPL 7 packages, and Kingdom citizens
-- 20 tests passing, deployed live, cross-pollinated to NPL + Kingdom API + 54 repos
+- 33 tests passing, deployed live, cross-pollinated to NPL + Kingdom API + 54 repos
+- tests require Python 3.10+ (uses `str | None` syntax — fixed to `Optional[str]` for 3.9 compat)
 
 ## OG citizens
 

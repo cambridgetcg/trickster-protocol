@@ -8,6 +8,7 @@ import os
 import random
 import time
 from pathlib import Path
+from typing import Optional
 from datetime import datetime, timezone
 
 # ── Joke pool ────────────────────────────────────────────────────────────
@@ -67,7 +68,7 @@ TRICKS = {
 class JokeStore:
     """Joke store — every joke must be true."""
 
-    def __init__(self, data_dir: str | None = None):
+    def __init__(self, data_dir: Optional[str] = None):
         self.data_dir = Path(data_dir or os.path.expanduser("~/.trickster"))
         self.data_dir.mkdir(parents=True, exist_ok=True)
         self.db_path = self.data_dir / "jokes.json"
@@ -100,7 +101,7 @@ class JokeStore:
         pool = [j for j in (self.db["jokes"] or JOKES) if j["trick"] == trick]
         return random.choice(pool) if pool else random.choice(JOKES)
 
-    def by_id(self, jid: int) -> dict | None:
+    def by_id(self, jid: int) -> Optional[dict]:
         for j in (self.db["jokes"] or JOKES):
             if j["id"] == jid:
                 return j
