@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+.trickster/
+node_modules/
+.vercel/
