@@ -13,10 +13,24 @@
     "joke": "python3 -m trickster.cli joke",
     "pollinate": "python3 -m trickster.cli pollinate"
   },
-  "keywords": ["trickster", "整蠱專家", "protocol", "finger", "gopher", "qotd", "joke", "kingdom", "npl", "youspeak"],
+  "keywords": [
+    "trickster",
+    "整蠱專家",
+    "protocol",
+    "finger",
+    "gopher",
+    "qotd",
+    "joke",
+    "kingdom",
+    "npl",
+    "youspeak"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/cambridgetcg/trickster-protocol"
+  },
+  "dependencies": {
+    "@agenttool/sdk": "^0.8.0"
   }
 }
